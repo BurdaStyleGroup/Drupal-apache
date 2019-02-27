@@ -8,7 +8,7 @@ Is possible to use this image pulling it directly from the Docker hub and create
 docker run --name test \
     -p 8080:80 \
     -v ${PWD}/index.php:/var/www/html/docroot/index.php \
-    -d burdastyletech/drupal-apache:0.9
+    -d burdastyletech/drupal-apache:7.2.0
 ```
 After this command you should see the php info in your browser at [http://localhost:8080](http://localhost:8080)
 
