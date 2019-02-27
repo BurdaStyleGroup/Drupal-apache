@@ -12,6 +12,9 @@ docker run --name test \
 ```
 After this command you should see the php info in your browser at [http://localhost:8080](http://localhost:8080)
 
+## Image tagging
+The image is tagged here and in Docker hub follows the tagging of php: the first two numbers represent the PHP version(i.e. 7.2), the last number (the one used usually for bugs) represent some changes (bugs, improvements...) to the image.
+
 ## Xdebug
 This image is thought to be used mostly in development environment, so XDebug is enabled by default.
 
