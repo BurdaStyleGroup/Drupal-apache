@@ -28,7 +28,7 @@ docker exec -it test bash
 xdebug_off
 ```
 
-**To persist the loopback address run the script ```./scripts/persist-address.sh```**
+**To persist the loopback address run the script ```sudo ./scripts/persist-address.sh```**
 
 *Here an explanation about the problem for Mac Users.*
 - [https://www.ashsmith.io/docker/get-xdebug-working-with-docker-for-mac/](https://www.ashsmith.io/docker/get-xdebug-working-with-docker-for-mac/)
