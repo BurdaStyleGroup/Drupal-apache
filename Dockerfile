@@ -21,7 +21,7 @@ RUN sed -i -e 's/^#\(Include .*httpd-ssl.conf\)/\1/' \
         -e "\$aServerName localhost" \
         /etc/apache2/apache2.conf
 
-RUN mkdir -p /var/www/html/docroot
+RUN mkdir -p /var/www/html/${ROOT_DIR}
 #install imagegick
 RUN aptitude update && aptitude install -y imagemagick
 
