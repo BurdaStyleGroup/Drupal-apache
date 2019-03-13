@@ -21,7 +21,7 @@ RUN sed -i -e 's/^#\(Include .*httpd-ssl.conf\)/\1/' \
         -e "\$aServerName localhost" \
         /etc/apache2/apache2.conf
 
-RUN mkdir -p /var/www/html/${ROOT_DIR}
+RUN mkdir -p /var/www/html/docroot
 #install imagegick
 RUN aptitude update && aptitude install -y imagemagick
 
@@ -34,5 +34,9 @@ COPY conf/drupal.conf /etc/apache2/sites-available/000-default.conf
 COPY conf/project.dev.crt /usr/local/share/ca-certificates/project.dev.crt
 COPY conf/project.dev.pem /usr/local/share/ca-certificates/project.dev.pem
 COPY conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-#enable ssl and rewrite modules in apache2
-RUN a2enmod ssl rewrite
+
+RUN a2enmod ssl rewrite && xdebug_off
+
+COPY entrypoint.sh /usr/local/bin/
+#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["apache2-foreground"]
