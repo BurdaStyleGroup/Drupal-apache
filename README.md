@@ -2,6 +2,10 @@ Drupal-apache
 --------------------
 Php 7.2.12 and Apache docker image optimized for Drupal 8 development
 
+## Image tagging
+The image is tagged here and in Docker hub follows the tagging of php: the first two numbers represent the PHP 
+version(i.e. 7.2), the last number (the one used usually for bugs) represent some changes (bugs, improvements...) to the image.
+
 # How use it
 Is possible to use this image pulling it directly from the Docker hub and create a container:
 ```
@@ -13,23 +17,27 @@ docker run --name test \
 ```
 After this command you should see the php info in your browser at [http://localhost:8080](http://localhost:8080)
 
+## Buiding variables
+|Variable | Meaning                               | default      |
+|:---------|:---------------------------------------|:--------------|
+|`BROWSERMOB_PROXY_VERSION`|                        |2.1.4|
+|`CHROME_DRIVER_VERSION`   |                        |2.36|
+
+## Environment variables
+|Variable | Meaning                               | default      |
+|:---------|:---------------------------------------|:--------------|
+|`HOSTNAME` |local hostname inside docker container  | localhost    |
+|`BEHAT_PARAMS`|behat params to run behat tests |{"extensions" : {"Vanare\\BehatCucumberJsonFormatter\\Extension":{"outputDir":"/tmp"},"Behat\\MinkExtension" : {"base_url" : "http://localhost/","files_path":"/var/www/html/behat/sample_data","show_tmp_dir":"/tmp"}, "Drupal\\DrupalExtension" : {"drupal" : {"drupal_root" : "/var/www/html/docroot"}}}}|
+
+
 ## Xdebug
-This image is thought to be used mostly in development environment, so XDebug is enabled by default.
-
-**In order to make it run for all users (Mac and Linux) we need to create a workaround, run:**
-```
-sudo ifconfig lo0 alias 10.254.254.254
-```
-
-Now XDebug should works as for Mac as for Linux users.
+This image is thought to be used mostly in development environment, so XDebug is not enabled by default.
 
 To enable/disable it go inside your container and run ```xdebug_off```or ```xdebug_on```:
 ```
 docker exec -it test bash
 xdebug_off
 ```
-
-**To persist the loopback address run the script ```sudo ./scripts/persist-address.sh```**
 
 *Here an explanation about the problem for Mac Users.*
 - [https://www.ashsmith.io/docker/get-xdebug-working-with-docker-for-mac/](https://www.ashsmith.io/docker/get-xdebug-working-with-docker-for-mac/)
