@@ -22,6 +22,7 @@ After this command you should see the php info in your browser at [http://localh
 |:---------|:---------------------------------------|:--------------|
 |`BROWSERMOB_PROXY_VERSION`|                        |2.1.4|
 |`CHROME_DRIVER_VERSION`   |                        |2.36|
+|`AH_SITE_ENVIRONMENT`| environment                 |dev |
 
 ## Environment variables
 |Variable | Meaning                               | default      |

@@ -6,6 +6,7 @@ ARG BROWSERMOB_PROXY_VERSION=2.1.4
 ARG CHROME_DRIVER_VERSION=2.36
 ENV HOSTNAME=localhost
 ENV BEHAT_PARAMS="{\"extensions\" : {\"Vanare\\BehatCucumberJsonFormatter\\Extension\":{\"outputDir\":\"/tmp\"},\"Behat\\MinkExtension\" : {\"base_url\" : \"http://localhost/\",\"files_path\":\"/var/www/html/behat/sample_data\",\"show_tmp_dir\":\"/tmp\"}, \"Drupal\\DrupalExtension\" : {\"drupal\" : {\"drupal_root\" : \"/var/www/html/docroot\"}}}}"
+ENV AH_SITE_ENVIRONMENT=dev
 
 #ssl configuration
 RUN sed -i -e 's/^#\(Include .*httpd-ssl.conf\)/\1/' \
